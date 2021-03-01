@@ -32,7 +32,9 @@ module Api
 
             def update
                 bicycle = Bicycle.find(params[:id])
-                if bicycle.update_attributes(bicycle_params)
+                bicycle.name = bicycle_params[:name]
+                bicycle.save
+                if bicycle.save
                     bicycles_serializer = parse_json bicycle
                     render json: {status:'SUCCESS', message:'Updated', data:bicycle},status: :ok 
                 else
