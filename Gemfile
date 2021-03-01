@@ -5,7 +5,7 @@ ruby '3.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.3'
-# # Use sqlite3 as the database for Active Record.
+# # Use pg as the database for Active Record.
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -30,7 +30,7 @@ group :development, :test do
 end
 
 group :development do
-  gem 'sqlite3', '~> 1.4'
+  gem 'pg', '~> 1.4'
   
 end
 
