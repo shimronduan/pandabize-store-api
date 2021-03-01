@@ -22,5 +22,5 @@ i3o1 = Option.create(Name: 'Red', item: i3)
 i3o2 = Option.create(Name: 'Black', item: i3)
 i3o3 = Option.create(Name: 'Yellow', item: i3)
 
-Linkage.create({ parent_id: 1, child_id: 1})
+# Linkage.create({ parent_id: 1, child_id: 1})
 # , { Name: 'Rim Color' }, { Name: 'Saddle Color' }]

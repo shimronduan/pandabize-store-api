@@ -18,10 +18,6 @@ ActiveRecord::Schema.define(version: 2021_03_01_015359) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "colors", force: :cascade do |t|
-    t.string "name"
-  end
-
   create_table "customizations", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -35,13 +31,6 @@ ActiveRecord::Schema.define(version: 2021_03_01_015359) do
     t.string "Name"
     t.integer "bicycle_id", null: false
     t.index ["bicycle_id"], name: "index_items_on_bicycle_id"
-  end
-
-  create_table "linkages", force: :cascade do |t|
-    t.integer "parent_id"
-    t.integer "child_id"
-    t.index ["child_id"], name: "index_linkages_on_child_id"
-    t.index ["parent_id"], name: "index_linkages_on_parent_id"
   end
 
   create_table "options", force: :cascade do |t|
@@ -58,21 +47,8 @@ ActiveRecord::Schema.define(version: 2021_03_01_015359) do
     t.index ["bicycle_id"], name: "index_orders_on_bicycle_id"
   end
 
-  create_table "rimcolor_wheelsizes", force: :cascade do |t|
-    t.integer "color_id"
-    t.integer "wheelsize_id"
-    t.index ["color_id"], name: "index_rimcolor_wheelsizes_on_color_id"
-    t.index ["wheelsize_id"], name: "index_rimcolor_wheelsizes_on_wheelsize_id"
-  end
-
-  create_table "wheelsizes", force: :cascade do |t|
-    t.integer "Size"
-  end
-
   add_foreign_key "customizations", "options"
   add_foreign_key "customizations", "orders"
   add_foreign_key "items", "bicycles"
-  add_foreign_key "linkages", "options", column: "child_id"
-  add_foreign_key "linkages", "options", column: "parent_id"
   add_foreign_key "options", "items"
 end

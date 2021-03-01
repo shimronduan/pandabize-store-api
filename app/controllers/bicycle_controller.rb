@@ -1,2 +1,0 @@
-class BicycleController < ApplicationController
-end
