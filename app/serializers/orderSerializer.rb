@@ -1,4 +1,4 @@
 class OrderSerializer < ActiveModel::Serializer
-    attributes :id, :customer, :customizations
+    attributes :id, :customer, :bicycle, :customizations
   end
   

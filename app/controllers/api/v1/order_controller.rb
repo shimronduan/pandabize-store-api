@@ -14,7 +14,7 @@ module Api
             end
 
             def create
-                order = Order.create(customer: permit_params[:customer])
+                order = Order.create(customer: permit_params[:customer],bicycle_id:permit_params[:bicycle_id])
                 permit_params[:options].each do |o|
                     Customization.create(order_id: order.id, option_id:o)
                 end
@@ -39,7 +39,7 @@ module Api
             private
 
             def permit_params
-                params.permit(:customer, :options => [])
+                params.permit(:customer, :bicycle_id, :options => [])
             end
 
         end

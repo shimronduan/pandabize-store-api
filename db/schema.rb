@@ -52,8 +52,10 @@ ActiveRecord::Schema.define(version: 2021_03_01_015359) do
 
   create_table "orders", force: :cascade do |t|
     t.string "customer"
+    t.integer "bicycle_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["bicycle_id"], name: "index_orders_on_bicycle_id"
   end
 
   create_table "rimcolor_wheelsizes", force: :cascade do |t|
