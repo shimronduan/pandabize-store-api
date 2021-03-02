@@ -10,7 +10,7 @@ module Api
             def show
                 # color = Color.find(params[:id])
                 option = Option.find(params[:id])
-                options_serializer = parse_json options
+                options_serializer = parse_json option
                 render json: {status:'SUCCESS', message:'loaded', data:options_serializer},status: :ok
             end
 
@@ -33,10 +33,11 @@ module Api
 
             def update
                 option = Option.find(params[:id])
-                if option.update_attributes(permit_params)
-                    render json: {status:'SUCCESS', message:'Updated', data:color},status: :ok 
+                option.Name = permit_params[:Name]
+                if option.save
+                    render json: {status:'SUCCESS', message:'Updated', data:option},status: :ok 
                 else
-                    render json: {status:'ERROR', message:'NOT Updated', data:color.errors},status: :unprocessable_entity 
+                    render json: {status:'ERROR', message:'NOT Updated', data:option.errors},status: :unprocessable_entity 
                 end
             end
 

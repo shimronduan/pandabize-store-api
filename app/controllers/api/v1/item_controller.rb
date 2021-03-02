@@ -32,10 +32,11 @@ module Api
 
             def update
                 item = Item.find(params[:id])
-                if item.update_attributes(permit_params)
-                    render json: {status:'SUCCESS', message:'Updated', data:color},status: :ok 
+                item.Name = permit_params[:Name]
+                if item.save
+                    render json: {status:'SUCCESS', message:'Updated', data:item},status: :ok 
                 else
-                    render json: {status:'ERROR', message:'NOT Updated', data:color.errors},status: :unprocessable_entity 
+                    render json: {status:'ERROR', message:'NOT Updated', data:item.errors},status: :unprocessable_entity 
                 end
             end
 
